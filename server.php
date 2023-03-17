@@ -51,6 +51,12 @@ switch ( strtoupper($_SERVER['REQUEST_METHOD']) ) {
 		}
 		break;
 	case 'POST':
+		$json = file_get_contents('php://input');
+		
+		$books[] = json_decode( $json, true ); // Forma de arreglo
+
+		//echo array_keys( $books )[ count($books) - 1 ];
+		echo json_encode( $books );
 		break;
 	case 'PUT':
 		break;
